@@ -15,6 +15,8 @@ class ApplicationsController < ApplicationController
   # GET /applications/new
   def new
     @application = Application.new
+    render component: 'AppForm', props: {applications: @applications}
+
   end
 
   # GET /applications/1/edit

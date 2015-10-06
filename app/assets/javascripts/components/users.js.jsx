@@ -1,4 +1,4 @@
-var Test = React.createClass({
+var UsersIndex = React.createClass({
   render: function() {
       return(
         <div>
@@ -58,18 +58,22 @@ var Test = React.createClass({
             </div>
           </nav>
         <div>
-          <Test1 />
+        {this.props.users[0].first_name}
+        console.log(this.props.users)
+          <UserNames last_name={UserNames.last_name}/>
         </div>
       </div>
     )
 }
 });
 
-var Test1 = React.createClass({
+var UserNames = React.createClass({
   render: function() {
+    console.log(this.props.users)
       return(
         <div>
-          Hello {this.props.users}
+          {this.props.users[0].last_name}
+
         </div>
 
       )
