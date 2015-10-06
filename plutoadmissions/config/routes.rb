@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :screenings
   resources :applications
   resources :users_courses
   resources :courses
