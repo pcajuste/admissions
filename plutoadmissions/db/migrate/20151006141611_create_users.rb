@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :skype
       t.string :date_of_birth
-      t.string :password
+      t.string :password_digest
       t.string :type
       t.string :buffer
 
