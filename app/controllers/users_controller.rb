@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    render component: 'TestingTest', props: {users: @users}
+    render component: 'NavBar', props: {users: @users}
   end
 
   # GET /users/1
