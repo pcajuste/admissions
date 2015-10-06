@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @screening.user %>
+</p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @screening.application %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @screening.type %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @screening.date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @screening.duration %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @screening.notes %>
+</p>
+
+<p>
+  <strong>Buffer:</strong>
+  <%= @screening.buffer %>
+</p>
+
+<%= link_to 'Edit', edit_screening_path(@screening) %> |
+<%= link_to 'Back', screenings_path %>
