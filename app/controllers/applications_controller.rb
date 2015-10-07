@@ -5,6 +5,8 @@ class ApplicationsController < ApplicationController
   # GET /applications.json
   def index
     @applications = Application.all
+    @users = User.all
+    render component: 'AppsIndex', props: {users: @users, applications: @applications}
   end
 
   # GET /applications/1
@@ -16,7 +18,6 @@ class ApplicationsController < ApplicationController
   def new
     @application = Application.new
     render component: 'NewApp', props: {applications: @applications}
-
   end
 
   # GET /applications/1/edit
