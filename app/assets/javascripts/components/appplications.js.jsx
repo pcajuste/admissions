@@ -109,8 +109,10 @@ var NewApp = React.createClass({
 } else {
     return(
       <div>
+
         <h1>Thank you for submitting. View your application:</h1>
-        <a href={"/applications/"+this.props.id+""}>Click Here!</a>
+
+
       </div>
     )
   }
@@ -118,10 +120,26 @@ var NewApp = React.createClass({
 }
 });
 
+var LinkApp = React.createClass({
+  render: function() {
+      console.log(this.props.app.id)
+      return(
+        <div>
+        <a href={"/applications/"+this.props.app.id}>Click Here!</a>
+        </div>
+      )
+  }
+});
+
+
+
 var ShowApp = React.createClass({
   render: function() {
+      console.log(this.props.app.id)
       return(
-        <h1>{this.props.app}</h1>
+        <div>
+        {this.props.app}
+        </div>
       )
   }
 });
