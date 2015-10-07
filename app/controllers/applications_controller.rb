@@ -10,13 +10,13 @@ class ApplicationsController < ApplicationController
   # GET /applications/1
   # GET /applications/1.json
   def show
+    render component: 'ShowApp', props: {app: @application}
   end
 
   # GET /applications/new
   def new
     @application = Application.new
-    render component: 'NewApp', props: {applications: @applications}
-
+    render component: 'NewApp', props: {app: @application}
   end
 
   # GET /applications/1/edit
@@ -28,15 +28,7 @@ class ApplicationsController < ApplicationController
   def create
     # @application = Application.new(application_params)
     @application = Application.create(user_id: params[:user_id], course_id: params[:course_id], resume: params[:resume], status: params[:status], stage: params[:stage], notes: params[:notes], education: params[:education], experience: params[:experience], skils: params[:skils], motive: params[:motive], hear: params[:hear], additional: params[:additional])
-    respond_to do |format|
-      if @application.save
-        format.html { redirect_to @application, notice: 'Application was successfully created.' }
-        format.json { render :show, status: :created, location: @application }
-      else
-        format.html { render :new }
-        format.json { render json: @application.errors, status: :unprocessable_entity }
-      end
-    end
+    render json: @application
   end
 
   # PATCH/PUT /applications/1
