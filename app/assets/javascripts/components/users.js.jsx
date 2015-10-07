@@ -1,12 +1,15 @@
 var UsersIndex = React.createClass({
   render: function() {
+    var userNodes = this.props.users.map(function(user){
+      return (
+        <h1>{user.first_name}</h1>
+      );
+    })
       return(
-        
-        {this.props.users[0]}
-
-          <UserNames last_name={UserNames.last_name}/>
+        <div>
+        {userNodes}
         </div>
-      </div>
+
     )
 }
 });
