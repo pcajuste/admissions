@@ -1,6 +1,6 @@
 var NewApp = React.createClass({
   getInitialState: function() {
-    return {user_id: '', course_id:'', resume: '', status: '', stage: '', notes: '', education: '', experience: '', skils: '', motive: '', hear: '', additional: ''}
+    return {user_id: '', course_id:'', resume: '', status: '', stage: '', notes: '', education: '', experience: '', skils: '', motive: '', hear: '', additional: '', submit: 'false', data:{}}
   },
 
   handleUserIDChange: function(e) {
@@ -40,6 +40,7 @@ var NewApp = React.createClass({
     this.setState({additional:e.target.value})
   },
   handleSubmit: function(e) {
+    e.preventDefault();
     var that = this
     $.ajax({
       url: '/applications',
@@ -57,16 +58,18 @@ var NewApp = React.createClass({
         motive: that.state.motive,
         hear: that.state.hear,
         additional: that.state.additional
+
       },
       success: function(data, success, xhr) {
         console.log(data)
+        that.setState({submit: 'true'})
+        that.setState({data: data})
+
       }
     })
   },
-
-
-
   render: function() {
+    if(this.state.submit == "false") {
     return(
       <div className="container">
       <form className="navbar-form navbar-left" onSubmit={this.handleSubmit}>
@@ -102,8 +105,25 @@ var NewApp = React.createClass({
         </div>
       </form>
       </div>
-
+          )
+} else {
+    console.log(this.props.app.id);
+    return(
+      <div>
+        <ShowApp />
+        <h1>Thank you for submitting. View your application:</h1>
+      </div>
     )
   }
 
+}
+});
+
+var ShowApp = React.createClass({
+  render: function() {
+      console.log(this.props.app)
+      return(
+        <h1>{this.props.app}</h1>
+      )
+  }
 });

@@ -1,17 +1,20 @@
 var AppsIndex = React.createClass({
   render: function() {
+      var that=this;
     var appNodes = this.props.applications.map(function(app){
-        return (
-          <div className="row">
-            <div className="col-md-1">{app.user_id}</div>
-            <div className="col-md-1">{app.course_id}</div>
-            <div className="col-md-1">{app.resume}</div>
-            <div className="col-md-1">{app.education}</div>
-            <div className="col-md-1">{app.experience}</div>
-            <div className="col-md-1">{app.skils}</div>
-            <div className="col-md-1">{app.notes}</div>
-          </div>
-        )
+      var userNodes = that.props.users.map(function(user){
+          console.log("user name = " + user.email + "-- app.user_id = "+ app.user_id);
+        if (user.id == app.user_id){
+          return (
+            <div className="row">
+              <div className="col-md-1">{user.first_name}</div>
+
+            </div>
+          )
+        }
+
+
+      })
 
     });
 

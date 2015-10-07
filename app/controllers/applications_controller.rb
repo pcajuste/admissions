@@ -6,7 +6,7 @@ class ApplicationsController < ApplicationController
   def index
     @applications = Application.all
     @users = User.all
-    render component: 'AppsIndex', props: {applications: @applications}
+    render component: 'AppsIndex', props: {users: @users, applications: @applications}
   end
 
   # GET /applications/1
@@ -17,7 +17,7 @@ class ApplicationsController < ApplicationController
   # GET /applications/new
   def new
     @application = Application.new
-    render component: 'NewApp', props: {applications: @applications}
+    render component: 'AddTravel', props: {app: @application}
   end
 
   # GET /applications/1/edit
