@@ -59,7 +59,7 @@ var UsersIndex = React.createClass({
           </nav>
         <div>
         {this.props.users[0].first_name}
-        console.log(this.props.users)
+    
           <UserNames last_name={UserNames.last_name}/>
         </div>
       </div>
@@ -72,7 +72,7 @@ var UserNames = React.createClass({
     console.log(this.props.users)
       return(
         <div>
-          {this.props.users[0].last_name}
+          Hello
 
         </div>
 
