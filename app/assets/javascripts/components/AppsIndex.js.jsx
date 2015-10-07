@@ -2,6 +2,23 @@ var AppsIndex = React.createClass({
   render: function() {
     var appNodes = this.props.applications.map(function(app){
           return (
+          <div>
+          <table>
+
+                <tbody>
+                  <tr>
+                    <td>{app.education}</td>
+                    <td>{app.experience}</td>
+                    <td>{app.status}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )
+    });
+
+      return(
+        <div>
             <div className="container">
               <table className="table table-hover">
                 <thead>
@@ -11,24 +28,17 @@ var AppsIndex = React.createClass({
                     <th>Status</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>{app.education}</td>
-                    <td>{app.experience}</td>
-                    <td>{app.status}</td>
-                  </tr>
-                </tbody>
+                  <td>{appNodes}</td>
+                  <td>{appNodes}</td>
+                  <td>{appNodes}</td>
+
               </table>
-              <h2><LikeButton/></h2>
             </div>
-          )
-    });
-      return(
-        <div>{appNodes}</div>
+        </div>
     )
+    console.log(appNodes);
   }
 });
-
 var LikeButton = React.createClass({
   getInitialState: function() {
     return {liked: false};
