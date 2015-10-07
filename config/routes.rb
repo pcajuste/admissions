@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+
   resources :screenings
   resources :applications
   resources :users_courses
   resources :courses
   resources :users
+  resources :instructors, controller: 'users', type: 'Instructor'
+  resources :admissions_officers, controller: 'users', type: 'Admissions_Officer'
+  resources :candidates, controller: 'users', type: 'Candidate'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

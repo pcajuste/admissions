@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_type, only: [:index]
+
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = type_class.all
     render component: 'UsersIndex', props: {users: @users}
   end
 
@@ -66,6 +68,18 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def set_type
+       @type = type
+    end
+
+    def type
+        User.type.include?(params[:type]) ? params[:type] : "User"
+    end
+
+    def type_class
+        type.constantize
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
