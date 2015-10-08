@@ -75,8 +75,6 @@ var NewApp = React.createClass({
       <form className="navbar-form navbar-left" onSubmit={this.handleSubmit}>
 
         <div className="form-group">
-        <h1>New Application</h1>
-
           User_id: <input type="text" className="form-control" placeholder="user_id" value={this.state.user_id} onChange={this.handleUserIDChange}></input>
           <br/>
           Course_id: <input type="text" className="form-control" placeholder="course_id" value={this.state.course_id} onChange={this.handleCourseIDChange}></input>
@@ -110,20 +108,10 @@ var NewApp = React.createClass({
     console.log(this.props.app.id);
     return(
       <div>
-        <ShowApp />
         <h1>Thank you for submitting. View your application:</h1>
       </div>
     )
   }
 
 }
-});
-
-var ShowApp = React.createClass({
-  render: function() {
-      console.log(this.props.app)
-      return(
-        <h1>{this.props.app}</h1>
-      )
-  }
 });

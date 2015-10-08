@@ -16,7 +16,6 @@ var UsersIndex = React.createClass({
 
 var UserNames = React.createClass({
   render: function() {
-    console.log(this.props.users)
       return(
         <div>
           Hello
@@ -25,4 +24,13 @@ var UserNames = React.createClass({
 
       )
   }
+  });
+  var ShowApp = React.createClass({
+    render: function() {
+        return(
+          <div className="progress">
+            <div className="bar" style="width: 60%;"></div>
+          </div>
+        )
+    }
   });

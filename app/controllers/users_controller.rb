@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    render component: 'UsersIndex', props: {users: @users}
   end
 
   # GET /users/1
